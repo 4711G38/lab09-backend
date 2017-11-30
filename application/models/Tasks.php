@@ -1,18 +1,20 @@
 <?php
-
 /**
  *
  *
  * @author Tim
  */
- class Tasks extends CSV_Model {
+ class Tasks extends XML_Model {
 
          public function __construct()
          {
                  parent::__construct(APPPATH . '../data/tasks.csv', 'id');
          }
 
-         function getCategorizedTasks()
+     function getCategorizedTasks()
+      {
+          // extract the undone tasks
+          foreach ($this->all() as $task)
           {
               // extract the undone tasks
               foreach ($this->all() as $task)
