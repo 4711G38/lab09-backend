@@ -6,11 +6,6 @@
  */
  class Tasks extends XML_Model {
 
-         public function __construct()
-         {
-                 parent::__construct(APPPATH . '../data/tasks.csv', 'id');
-         }
-
      function getCategorizedTasks()
       {
           // extract the undone tasks
@@ -38,7 +33,7 @@
           }
 
           // provide form validation rules
-          public function rules()
+        function rules()
           {
               $config = array(
                   ['field' => 'task', 'label' => 'TODO task', 'rules' => 'alpha_numeric_spaces|max_length[64]'],
@@ -48,6 +43,8 @@
               );
               return $config;
           }
+ }
+
  }
 
 // return -1, 0, or 1 of $a's category name is earlier, equal to, or later than $b's
